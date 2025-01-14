@@ -1,0 +1,14 @@
+name: Basic workflow
+on: [push]
+jobs:
+  main_job:
+    name: basic job
+    runs-on: ubuntu-lates
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v3
+
+      - name: build docker image
+        working-directory: ./production
+        run: docker build . -t ql:0.0.1
+        
